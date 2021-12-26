@@ -1,5 +1,5 @@
 # Get the base Ubuntu image from Docker Hub
-FROM ubuntu:latest
+FROM gcc:latest
 
 # Update apps on the base image
 RUN apt-get -y update && apt-get install -y
@@ -14,7 +14,7 @@ COPY . /usr/src/dockertest1
 WORKDIR /usr/src/dockertest1
 
 # Use Clang to compile the Test.cpp source file
-RUN clang++ -o Test bank.cpp
+RUN g++ -o Test bank.cpp
 
 # Run the output program from the previous step
 CMD ["./Test"]
